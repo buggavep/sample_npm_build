@@ -21,6 +21,6 @@ jobs:
       inputs:
       - name: myworkspace-repo
       run:
-        path: myworkspace-repo/ci/install.sh
-        #path: echo
-        #args: ["Hello World!"]
+        #path: myworkspace-repo/ci/install.sh
+        path: echo
+        args: ["Hello World!"]
