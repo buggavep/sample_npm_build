@@ -1,29 +1,28 @@
----
 resources:
-  - name: myworkspace-repo
-    type: git
-    source:
-      uri: https://github.com/buggavep/node-js-sample.git
-      branch: develop
+- name: myworkspace-repo
+  type: git
+  source:
+     uri: https://github.com/buggavep/node-js-sample.git
+     branch: develop
 
 jobs:
- - name: integration
-   serial: true
+- name: integration
+  serial: true
 
-   plan:
-   - {get: myworkspace-repo, trigger: true}
-   - task: build-npm
+  plan:
+  - {get: myworkspace-repo, trigger: true}
+  - task: build-npm
 
-   config:
-    platform: linux
+  config:
+   platform: linux
 
-    image_resource:
-      type: docker-image
-      source:
-        repository: node
+   image_resource:
+     type: docker-image
+     source:
+       repository: node
 
-    inputs:
-     - name: myworkspace-repo
+   inputs:
+    - name: myworkspace-repo
     
-    run: 
-     path: myworkspace-repo/scripts/install.sh
+   run: 
+    path: myworkspace-repo/scripts/install.sh
