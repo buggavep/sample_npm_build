@@ -2,7 +2,8 @@ resources:
 - name: myworkspace-repo
   type: git
   source:
-     uri: https://github.com/heroku/node-js-sample.git
+     #uri: https://github.com/heroku/node-js-sample.git
+     uri: https://github.com/buggavep/node-js-sample.git   
      branch: master
 
 jobs:
@@ -10,6 +11,7 @@ jobs:
   plan:
   - get: myworkspace-repo
     trigger: true
+
   - task: build-npm
     config:  
       platform: linux
