@@ -4,6 +4,7 @@ resources:
   source:
      #uri: https://github.com/heroku/node-js-sample.git
      uri: https://github.com/buggavep/node-js-sample.git   
+     trigger: true
      branch: master
 
 jobs:
@@ -12,16 +13,33 @@ jobs:
   - get: myworkspace-repo
     trigger: true
 
-  - task: build-npm
+  - task: npm-install
     config:  
       platform: linux
       image_resource:
         type: docker-image
-        source: {repository: node}
+        source: {repository: node, tag: "6" }
       inputs:
       - name: myworkspace-repo
+        path: .
+
+  - task: npm-test
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source: {repository: node, tag: "6" }
+      inputs:
+        - name: myworkspace-repo
+          path: .
+        - name: node_modules
       run:
+        path: npm
+        args: [ test ]
+     # run:
         #path: myworkspace-repo/node-js-sample/install.sh
-        path: ./install.sh
+     #   path: ./install.sh
         #path: echo
         #args: ["Hello World!"]
+    
+   
