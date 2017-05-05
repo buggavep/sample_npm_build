@@ -19,7 +19,7 @@ jobs:
       inputs:
       - name: myworkspace-repo
       run:
-        path:echo
-        args: [myworkspace-repo/scripts/install.sh]
+        paths:
+        - '/myworkspace-repo/scripts/install.sh'
   
 
