@@ -22,6 +22,6 @@ jobs:
       - name: myworkspace-repo
 
       run:
-        paths: myworkspace-repo/ci/scripts/install.sh
+        path: myworkspace-repo/ci/scripts/install.sh
   
 
