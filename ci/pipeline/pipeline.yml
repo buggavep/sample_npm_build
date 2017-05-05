@@ -18,8 +18,8 @@ jobs:
         source:{repository: busybox}
       inputs:
       - name: myworkspace-repo
+
       run:
-        paths:
-        - '/myworkspace-repo/ci/scripts/install.sh'
+        paths: myworkspace-repo/ci/scripts/install.sh
   
 
