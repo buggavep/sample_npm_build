@@ -11,15 +11,15 @@ jobs:
   - get: myworkspace-repo
     trigger: true
   - task: build-npm
-    config: 
+    config  
       platform: linux
       image_resource:
         type: docker-image
-        source: {repository: node}
+        source:{repository: busybox}
+#inputs:
+#  - name: myworkspace-repo
 
-      inputs:
-       - name: myworkspace-repo
-    
-      run: 
+      run:
         path: myworkspace-repo/scripts/install.sh
+  
 
