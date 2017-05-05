@@ -1,7 +1,10 @@
 #!/bin/bash
+echo "Script execution"
 
 cd myworkspace-repo
 
 npm install
 
-npm test
+npm start 
+
+#npm test
