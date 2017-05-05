@@ -17,7 +17,7 @@ jobs:
       platform: linux
       image_resource:
         type: docker-image
-        source:{repository: busybox}
+        source:{repository: node}
       inputs:
       - name: myworkspace-repo
       run:
