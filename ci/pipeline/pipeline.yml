@@ -3,7 +3,7 @@ resources:
   type: git
   source:
      uri:https://github.com/buggavep/node-js-sample.git
-     branch: develop
+     branch: master
 
 jobs:
 - name: integration
@@ -12,15 +12,15 @@ jobs:
   plan:
   - {get: myworkspace-repo, trigger: true}
   - task: build-npm
-    config:
+    config: 
       platform: linux
       image_resource:
         type: docker-image
-        source:
-          repository: node
+        source: {repository: node}
 
       inputs:
-        - name: myworkspace-repo
+       - name: myworkspace-repo
     
       run: 
         path: myworkspace-repo/scripts/install.sh
+
