@@ -2,8 +2,8 @@ resources:
 - name: myworkspace-repo
   type: git
   source:
-     #uri: https://github.com/heroku/node-js-sample.git
-     uri: https://github.com/buggavep/node-js-sample.git   
+     uri: https://github.com/heroku/node-js-sample.git
+     #uri: https://github.com/buggavep/node-js-sample.git   
      branch: master
 
 jobs:
@@ -17,10 +17,9 @@ jobs:
       platform: linux
       image_resource:
         type: docker-image
-        source:{repository: node}
+        source:{repository: busybox}
       inputs:
       - name: myworkspace-repo
       run:
         path: myworkspace-repo/ci/scripts/install.sh
-  
 
