@@ -2,8 +2,8 @@ resources:
 - name: myworkspace-repo
   type: git
   source:
-     #uri: https://github.com/heroku/node-js-sample.git
-     uri: https://github.com/buggavep/node-js-sample.git   
+     uri: https://github.com/heroku/node-js-sample.git
+     #uri: https://github.com/buggavep/node-js-sample.git   
      trigger: true
      branch: master
 
@@ -21,7 +21,7 @@ jobs:
         source: {repository: node, tag: "6" }
       inputs:
         - name: myworkspace-repo
-          path: .
+          path: myworkspace/app.js
       outputs:
         - name: node_modules
       run:
@@ -37,7 +37,7 @@ jobs:
         source: {repository: node, tag: "6" }
       inputs:
         - name: myworkspace-repo
-          path: .
+          path: myworkspace/app.js
         - name: node_modules
       run:
         path: npm
