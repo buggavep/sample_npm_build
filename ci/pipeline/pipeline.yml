@@ -3,7 +3,7 @@ resources:
   - name: myworkspace-repo
     type: git
     source:
-      uri: #yet to decide
+      uri: https://github.com/buggavep/node-js-sample.git
       branch: develop
 
 jobs:
