@@ -21,6 +21,7 @@ jobs:
       inputs:
       - name: myworkspace-repo
       run:
-        path: myworkspace-repo/sample_npm-build/ci/scripts
+        #path: myworkspace-repo/sample_npm-build/ci/scripts/install.sh
+        path: ./install.sh
         #path: echo
         #args: ["Hello World!"]
