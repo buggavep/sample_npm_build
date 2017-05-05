@@ -17,10 +17,10 @@ jobs:
       platform: linux
       image_resource:
         type: docker-image
-        source: {repository: ubuntu}
+        source: {repository: node}
       inputs:
       - name: myworkspace-repo
       run:
-        #path: myworkspace-repo/ci/scripts/install.sh
-        path: echo
-        args: ["Hello World!"]
+        path: myworkspace-repo/ci/install.sh
+        #path: echo
+        #args: ["Hello World!"]
