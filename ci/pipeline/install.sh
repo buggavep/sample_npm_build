@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "Script execution"
 
-cd myworkspace-repo
+cd node-js-sample
 
 npm install
 
