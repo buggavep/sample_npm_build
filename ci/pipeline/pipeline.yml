@@ -7,10 +7,9 @@ resources:
 
 jobs:
 - name: integration
-  serial: true
-
   plan:
-  - {get: myworkspace-repo, trigger: true}
+  - get: myworkspace-repo
+    trigger: true
   - task: build-npm
     config: 
       platform: linux
