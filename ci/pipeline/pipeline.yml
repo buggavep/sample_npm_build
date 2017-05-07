@@ -2,10 +2,8 @@ resources:
 - name: myworkspace-repo
   type: git
   source:
-     #uri: https://github.com/heroku/node-js-sample.git
-     #uri: https://github.com/buggavep/node-js-sample.git   
-     #uri: https://github.com/buggavep/gulp_concourse_project.git
-     uri: https://github.com/jairtrejo/simple-gulp-template.git
+     uri: https://github.com/buggavep/gulp_concourse_project.git
+     #uri: https://github.com/jairtrejo/simple-gulp-template.git
      trigger: true
      branch: master
 
@@ -14,7 +12,6 @@ jobs:
   plan:
   - get: myworkspace-repo
     trigger: true
-
   - task: npm-install
     config:  
       platform: linux
