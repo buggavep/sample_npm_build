@@ -4,7 +4,8 @@ resources:
   source:
      #uri: https://github.com/heroku/node-js-sample.git
      #uri: https://github.com/buggavep/node-js-sample.git   
-     uri: https://github.com/buggavep/gulp_concourse_project.git
+     #uri: https://github.com/buggavep/gulp_concourse_project.git
+     uri: https://github.com/jairtrejo/simple-gulp-template.git
      trigger: true
      branch: master
 
@@ -19,44 +20,23 @@ jobs:
       platform: linux
       image_resource:
         type: docker-image
-        source: {repository: node, tag: "6" }
+        source: {repository: node, tag: "5" }
       inputs:
         - name: myworkspace-repo
           path: myworkspace-repo/
       outputs:
         - name: node_modules
+        - name: bower_components
       run:
         path: sh
         args: 
           - -exec
           - | 
-            cd myworkspace-repo
+            cd myworkspace-repo/
+            npm install 
             npm install -g bower
-            npm install gulp
-            npm install gulp-cli 	 
-            gulp
-        #dir: "myworkspace-repo"
-        #args: [ install ]
-        #args: [npm install npm ]
-
-#  - task: bower-install
-#    config:
-#      platform: linux
-#      image_resource:
-#        type: docker-image
-#        source: {repository: node, tag: "6" }
-#      inputs:
-#        - name: myworkspace-repo
-#          path: myworkspace-repo/
-#        - name: node_modules
-#      run:
-#        path: bower
-#        args: [ install ]
-#     
-#     # run:
-#        #path: myworkspace-repo/node-js-sample/install.sh
-#     #   path: ./install.sh
-#        #path: echo
-#        #args: ["Hello World!"]
+            bower install --allow-root
+            npm install -g gulp
+            curl gulp
     
    
