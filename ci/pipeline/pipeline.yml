@@ -26,8 +26,15 @@ jobs:
       outputs:
         - name: node_modules
       run:
-        path: ./install.sh
-        dir: "myworkspace-repo"
+        path: sh
+        args: 
+          - -exec
+          - | 
+            cd myworkspace-repo
+            npm install -g bower
+            npm install gulp
+            gulp
+        #dir: "myworkspace-repo"
         #args: [ install ]
         #args: [npm install npm ]
 
