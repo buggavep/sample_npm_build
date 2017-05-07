@@ -26,7 +26,7 @@ jobs:
       outputs:
         - name: node_modules
       run:
-        path: install.sh
+        path: ./install.sh
         dir: "myworkspace-repo"
         #args: [ install ]
         #args: [npm install npm ]
