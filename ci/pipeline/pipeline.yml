@@ -33,6 +33,7 @@ jobs:
             cd myworkspace-repo
             npm install -g bower
             npm install gulp
+            npm install gulp-cli 	 
             gulp
         #dir: "myworkspace-repo"
         #args: [ install ]
