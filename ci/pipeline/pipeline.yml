@@ -1,3 +1,9 @@
+
+groups:
+- name: main
+  jobs:
+  - deploy-app
+
 resources:
 - name: myworkspace-repo
   type: git
@@ -6,6 +12,14 @@ resources:
      #uri: https://github.com/jairtrejo/simple-gulp-template.git
      trigger: true
      branch: master
+
+- name: PWS
+  type: cf
+  source: 
+   api: https://api.run.pivotal.io
+   username: {{cf-user}}
+   password: {{cf-password}}
+   organization: {{cf-org}}
 
 jobs:
 - name: integration
