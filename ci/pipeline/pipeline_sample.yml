@@ -15,19 +15,25 @@ jobs:
   - task: npm-install
     config:  
       platform: linux
-
       image_resource:
         type: docker-image
         source: {repository: node, tag: "5" }
-
       inputs:
-        - name: docker
-          path: https://github.com/buggavep/sample_npm_build
-
+        - name: myworkspace-repo
+          path: myworkspace-repo/
       outputs:
-        - name: built_resource
-
+        - name: node_modules
+        - name: bower_components
       run:
-        path: https://github.com/buggavep/sample_npm_build/ci/scripts/build
+        path: sh
+        args: 
+          - -exec
+          - | 
+            cd myworkspace-repo/
+            npm install 
+            npm install -g bower
+            bower install --allow-root
+            npm install -g gulp
+            curl gulp
     
    
