@@ -1,0 +1,16 @@
+#!/bin/bash
+
+cd /https://github.com/buggavep/sample_npm_build/Dockerfile
+
+docker build -t gulp .
+
+docker images
+
+cd ~/Sites/sample_npm_build
+
+cp node_modules ~/sample_npm_build-node_modules
+rm -rf node_modules
+
+dcoker run --rm -v ~/Sites/sample_npm_build:/opt gulp npm install
+
+docker run --rm -v ~/Sites/sample_npm_build:/opt gulp
