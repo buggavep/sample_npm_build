@@ -8,7 +8,7 @@ image_resource:
     tag: "5"
 
 inputs:
-- name: sample_build
+- name: myworkspace-repo
 
 run:
-  path: sample_build/ci/tasks/package
+  path: myworkspace-repo/ci/tasks/package
