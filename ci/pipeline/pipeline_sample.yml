@@ -28,11 +28,11 @@ jobs:
 #   - task: package
 #     file: myworkspace-repo/ci/tasks/package.yml
  
-- name: package
-  public: true
-  serial: true
-  plan:
-  - get: myworkspace-repo
-# - put: myworkspace-docker-image
-  params:
+ - name: package
+   public: true
+   serial: true
+   plan:
+   - get: myworkspace-repo
+#  - put: myworkspace-docker-image
+   params:
       build: myworkspace-repo/ci/docker
