@@ -27,8 +27,8 @@ jobs:
    - get: myworkspace
      passed: [build]
      trigger: true
-   params: 
-     build: myworkspace-repo/ci/tasks/docker
+     params: 
+       build: myworkspace-repo/ci/tasks/docker
 
   # - task: package
   #   file: myworkspace-repo/ci/tasks/package.yml
