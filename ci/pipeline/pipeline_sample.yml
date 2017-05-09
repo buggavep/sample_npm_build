@@ -12,6 +12,14 @@ resources:
      trigger: true
      branch: master
 
+- name: myworkspace-image
+  type: docker-image
+  source:
+    email: {{docker-hub-email}}
+    username: {{docker-hub-username}}
+    password: {{docker-hub-password}}
+    repository: {{docker-hub-image-myworkspace}}
+
 jobs: 
  - name: build
    plan: 
@@ -25,19 +33,8 @@ jobs:
    serial: true
    plan:
    - get: myworkspace-repo
-     trigger: true
      passed: 
         - build
    - put: myworkspace-image
      params: 
        build: myworkspace-repo/ci/tasks/docker   
-   #- task: package
-   #  file: myworkspace-repo/ci/tasks/package.yml
-
- - name: myworkspace-image
-   type: docker-image
-   source:
-    email: {{docker-hub-email}}
-    username: {{docker-hub-username}}
-    password: {{docker-hub-password}}
-    repository: {{docker-hub-image-myworkspace}}
