@@ -36,6 +36,6 @@ jobs:
      trigger: true
      passed: 
          - build
-   - put: docker-image
+   - put: myworkspace-image
    - task: deploy 
      file: myworkspace-repo/ci/tasks/package.yml
