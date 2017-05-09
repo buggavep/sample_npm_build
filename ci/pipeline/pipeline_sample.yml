@@ -25,6 +25,7 @@ jobs:
    serial: true
    plan:
    - get: myworkspace-repo
+   - put: myworkspace-image
      passed: [build]
      trigger: true
      params: 
@@ -32,3 +33,10 @@ jobs:
    #- task: package
    #  file: myworkspace-repo/ci/tasks/package.yml
 
+ - name: myworkspace-image
+   type: docker-image
+   source:
+    email: {{docker-hub-email}}
+    username: {{docker-hub-username}}
+    password: {{docker-hub-password}}
+    repository: {{docker-hub-image-myworkspace}}
