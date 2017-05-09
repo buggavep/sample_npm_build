@@ -1,16 +1,13 @@
 FROM mhart/alpine-node:base-6
 
-MAINTAINER Praneeth Buggaveeti 
+WORKDIR /myworkspace
+ADD . .
 
-WORKDIR myworkspace/
+# If you have native dependencies, you'll need extra tools
+RUN apk add --no-cache make gcc g++ python
 
-RUN npm install 
-RUN npm install -g bower
-RUN bower install --allow-root
-RUN npm install -g gulp-cli
-RUN npm install -g gulp
+# If you need npm, don't use a base tag
+RUN npm install
 
-EXPOSE 8000:80
-
-CMD ["gulp"]
-
+EXPOSE 3000
+CMD ["node", "index.js"]
