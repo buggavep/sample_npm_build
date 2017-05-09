@@ -32,7 +32,7 @@ jobs:
   public: true
   serial: true
   plan:
-  - get: resource-tutorial
-#  - put: hello-world-docker-image
+  - get: myworkspace-repo
+#  - put: myworkspace-docker-image
   params:
       build: myworkspace-repo/ci/docker
