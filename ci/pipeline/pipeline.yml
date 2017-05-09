@@ -1,4 +1,3 @@
-
 groups:
 - name: main
   jobs:
@@ -20,8 +19,9 @@ resources:
    username: {{cf-user}}
    password: {{cf-password}}
    organization: {{cf-org}}
-   space: test  
+   space: {{cf-space}}  
    skip_cert_chek: false
+
 jobs:
 - name: integration
   plan:
