@@ -9,6 +9,9 @@ image_resource:
 
 inputs:
 - name: myworkspace-repo
-  
+
+outputs:  
+- name: docker-image 
+
 run:
   path: myworkspace-repo/ci/tasks/package
