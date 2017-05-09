@@ -1,4 +1,4 @@
-FROM dockerfile/nodejs
+FROM linux
 
 MAINTAINER Praneeth Buggaveeti 
 
@@ -9,6 +9,8 @@ RUN npm install -g gulp-cli
 RUN npm install -g gulp
 
 WORKDIR /myworkspace
- 
+
+EXPOSE 8000:80
+
 CMD ["gulp"]
 
