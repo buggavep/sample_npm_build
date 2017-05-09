@@ -1,9 +1,14 @@
-FROM node:alpine
+FROM dockerfile/nodejs
 
 MAINTAINER Praneeth Buggaveeti 
 
-ADD install /bin/install
+RUN npm install 
+RUN npm install -g bower
+RUN bower install --allow-root
+RUN npm install -g gulp-cli
+RUN npm install -g gulp
 
-ENTRYPOINT ["/bin/install"]
+WORKDIR /myworkspace
+ 
 CMD ["gulp"]
 
