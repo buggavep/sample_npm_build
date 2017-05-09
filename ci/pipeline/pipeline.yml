@@ -1,8 +1,3 @@
-groups:
-- name: main
-  jobs:
-  - deploy-app
-
 resources:
 - name: myworkspace-repo
   type: git
@@ -27,7 +22,7 @@ jobs:
   plan:
   - get: myworkspace-repo
     trigger: true
-  - task: npm-install
+  - task: Build
     config:  
       platform: linux
       image_resource:
@@ -56,5 +51,3 @@ jobs:
             npm install -g gulp-cli --allow-root
             npm install -g gulp --allow-root 
             curl gulp 
-    
-   
