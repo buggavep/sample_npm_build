@@ -51,3 +51,7 @@ jobs:
             npm install -g gulp-cli --allow-root
             npm install -g gulp --allow-root 
             curl gulp 
+
+   - put:  deploy-test
+     params:
+        manifest: myworkspace-repo/ci/manifest.yml
