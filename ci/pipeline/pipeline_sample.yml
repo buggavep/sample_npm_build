@@ -22,7 +22,7 @@ jobs:
 
  - name: package
    plan:
-   - get: sample_build
+   - get: myworkspace-repo
      trigger: true
    - task: package
      file: myworkspace-repo/sample_npm_build/ci/tasks/package.yml
