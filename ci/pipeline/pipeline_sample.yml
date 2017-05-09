@@ -25,9 +25,10 @@ jobs:
    serial: true
    plan:
    - get: myworkspace-repo
-   - put: myworkspace-image
-     passed: [build]
      trigger: true
+     passed: 
+        - build
+   - put: myworkspace-image
      params: 
        build: myworkspace-repo/ci/tasks/docker   
    #- task: package
