@@ -33,8 +33,13 @@ jobs:
    serial: true
    plan:
    - get: myworkspace-repo
+     trigger: true
+     passed: 
+         -build
+   - task: deploy 
+     file: myworkspace-repo/ci/tasks/package.yml 
      #passed: 
      #   - build
-   - put: myworkspace-image
-     params: 
-       build: myworkspace-repo/ci/tasks/docker
+   #- put: myworkspace-image
+   #  params: 
+   #    build: myworkspace-repo/ci/tasks/docker
