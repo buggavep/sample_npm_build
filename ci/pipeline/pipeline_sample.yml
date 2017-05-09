@@ -35,7 +35,7 @@ jobs:
    - get: myworkspace-repo
      trigger: true
      passed: 
-         -build
+         - build
    - put: myworkspace-image 
    - task: deploy 
      file: myworkspace-repo/ci/tasks/package.yml
