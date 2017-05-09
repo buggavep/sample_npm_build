@@ -3,7 +3,7 @@ echo " This is building docker"
 
 cd myworkspace-repo/ci/docker/
 
-docker build
+docker build -t myworkspace-image
 
 
 
