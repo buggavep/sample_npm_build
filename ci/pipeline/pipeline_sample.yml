@@ -23,7 +23,7 @@ jobs:
  - name: package
    plan:
    - get: myworkspace-repo
-     passed: [build]
+     #passed: [build]
      trigger: true
    - task: package
      file: myworkspace-repo/ci/tasks/package.yml
