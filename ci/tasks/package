@@ -2,4 +2,4 @@
 
 set -xe
 
-echo "package"
+echo " This is inside package"

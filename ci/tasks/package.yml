@@ -11,4 +11,4 @@ inputs:
 - name: myworkspace-repo
 
 run:
-  path: myworkspace-repo/ci/tasks/package
+  path: myworkspace-repo/docker

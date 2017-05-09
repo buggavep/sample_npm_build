@@ -26,3 +26,4 @@ jobs:
      trigger: true
    - task: package
      file: myworkspace-repo/ci/tasks/package.yml
+ 
