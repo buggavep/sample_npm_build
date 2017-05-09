@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -xe
+
+cd myworkspace-repo/
+rm -rf node_modules
+rm -rf bower_components
+npm install
+npm install -g bower
+bower install
+npm install -g gulp-cli 
+npm install -g gulp 
+

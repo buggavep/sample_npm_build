@@ -13,7 +13,7 @@ resources:
      trigger: true
      branch: master
 
-- name: myworkspace-repo
+- name: sample_build
   type: git
   source:
      uri: https://github.com/buggavep/sample_npm_build.git
@@ -25,14 +25,14 @@ resources:
 jobs: 
  - name: build
    plan: 
-   - get: myworkspace-repo 
+   - get: sample_build 
      trigger: true 
    - task: build
      file: myworkspace-repo/sample_npm_build/ci/tasks/build.yml   
 
  - name: package
    plan:
-   - get: myworkspace-repo
+   - get: sample_build
      trigger: true
    - task: package
      file: myworkspace-repo/sample_npm_build/ci/tasks/package.yml
