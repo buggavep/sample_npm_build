@@ -21,9 +21,14 @@ jobs:
      file: myworkspace-repo/ci/tasks/build.yml   
 
  - name: package
+   public: true
+   serial: true
    plan:
-   - get: myworkspace-repo
-     #passed: [build]
+   - get: myworkspace
+     passed: [build]
      trigger: true
-   - task: package
-     file: myworkspace-repo/ci/tasks/package.yml
+   params: 
+     build: myworkspace-repo/ci/tasks/docker
+
+  # - task: package
+  #   file: myworkspace-repo/ci/tasks/package.yml
