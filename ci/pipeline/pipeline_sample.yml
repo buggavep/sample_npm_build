@@ -1,0 +1,38 @@
+groups:
+ - name: main
+   jobs:
+     - build
+     - package
+
+resources:
+- name: myworkspace-repo
+  type: git
+  source:
+     uri: https://github.com/buggavep/gulp_concourse_project.git
+     #uri: https://github.com/jairtrejo/simple-gulp-template.git
+     trigger: true
+     branch: master
+
+- name: myworkspace-repo
+  type: git
+  source:
+     uri: https://github.com/buggavep/sample_npm_build.git
+     #uri: https://github.com/jairtrejo/simple-gulp-template.git
+     trigger: true
+     branch: master
+
+
+jobs: 
+ - name: build
+   plan: 
+   - get: myworkspace-repo 
+     trigger: true 
+   - task: build
+     file: myworkspace-repo/sample_npm_build/ci/tasks/build.yml   
+
+ - name: package
+   plan:
+   - get: myworkspace-repo
+     trigger: true
+   - task: package
+     file: myworkspace-repo/sample_npm_build/ci/tasks/package.yml

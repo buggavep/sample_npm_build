@@ -1,3 +1,11 @@
+groups:
+- name: main
+  jobs:
+#  - unit-tests
+  - deploy-app
+#  - load-tests
+#  - promote-new-version
+
 resources:
 - name: myworkspace-repo
   type: git
@@ -22,7 +30,7 @@ jobs:
   plan:
   - get: myworkspace-repo
     trigger: true
-  - task: Build
+  - task: npm-sample
     config:  
       platform: linux
       image_resource:
