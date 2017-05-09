@@ -6,8 +6,8 @@ cd myworkspace-repo/
 rm -rf node_modules
 rm -rf bower_components
 npm install
-npm install -g bower
-bower install
+npm install -g bower --allow-root
+bower install --allow-root
 npm install -g gulp-cli 
 npm install -g gulp 
 
