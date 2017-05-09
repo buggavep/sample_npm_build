@@ -18,11 +18,11 @@ jobs:
    - get: myworkspace-repo 
      trigger: true 
    - task: build
-     file: myworkspace-repo/sample_npm_build/ci/tasks/build.yml   
+     file: myworkspace-repo/ci/tasks/build.yml   
 
  - name: package
    plan:
    - get: myworkspace-repo
      trigger: true
    - task: package
-     file: myworkspace-repo/sample_npm_build/ci/tasks/package.yml
+     file: myworkspace-repo/ci/tasks/package.yml
