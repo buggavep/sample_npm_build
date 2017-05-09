@@ -8,19 +8,9 @@ resources:
 - name: myworkspace-repo
   type: git
   source:
-     uri: https://github.com/buggavep/gulp_concourse_project.git
-     #uri: https://github.com/jairtrejo/simple-gulp-template.git
-     trigger: true
-     branch: master
-
-- name: myworkspace-repo
-  type: git
-  source:
      uri: https://github.com/buggavep/sample_npm_build.git
-     #uri: https://github.com/jairtrejo/simple-gulp-template.git
      trigger: true
      branch: master
-
 
 jobs: 
  - name: build
