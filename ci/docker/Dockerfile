@@ -1,4 +1,4 @@
-FROM node:alpine
+FROM node
 MAINTAINER Praneeth Buggaveeti 
 
 ADD install /bin/install
