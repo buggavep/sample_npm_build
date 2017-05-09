@@ -20,10 +20,19 @@ jobs:
    - task: build
      file: myworkspace-repo/ci/tasks/build.yml   
 
- - name: package
-   plan:
-   - get: myworkspace-repo
-     trigger: true
-   - task: package
-     file: myworkspace-repo/ci/tasks/package.yml
+# - name: package
+#   plan:
+#   - get: myworkspace-repo
+#     trigger: true
+
+#   - task: package
+#     file: myworkspace-repo/ci/tasks/package.yml
  
+- name: package
+  public: true
+  serial: true
+  plan:
+  - get: resource-tutorial
+#  - put: hello-world-docker-image
+  params:
+      build: myworkspace-repo/ci/docker

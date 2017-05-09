@@ -10,5 +10,5 @@ image_resource:
 inputs:
 - name: myworkspace-repo
 
-run:
-  path: myworkspace-repo/docker
+ params
+  build: myworkspace-repo/docker
