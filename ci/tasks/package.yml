@@ -1,17 +1,17 @@
 ---
 platform: linux
 
-#image_resource:
-#  type: docker-image
-#  source:
-#    repository: node
-#    tag: "5"
+image_resource:
+  type: docker-image
+  source:
+    repository: node
+    tag: "5"
 
 inputs:
 - name: myworkspace-repo
 
 outputs:  
-- name: docker-image 
+- name: myworkspace-image
 
 run:
   path: myworkspace-repo/ci/tasks/package

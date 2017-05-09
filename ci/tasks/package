@@ -2,6 +2,12 @@
 
 set -xe
 
-echo " This is inside package"
+echo " This is building docker"
+
+cd myworkspace-repo/ci/docker/
+
+docker build
+
+
 
 
