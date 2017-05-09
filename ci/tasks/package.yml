@@ -9,6 +9,6 @@ image_resource:
 
 inputs:
 - name: myworkspace-repo
-
- params
-  build: myworkspace-repo/docker
+  
+params
+   build: myworkspace-repo/ci/docker
