@@ -1,7 +1,4 @@
 #!/bin/bash
-
-set -xe
-
 echo " This is building docker"
 
 cd myworkspace-repo/ci/docker/
