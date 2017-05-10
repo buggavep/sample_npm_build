@@ -1,7 +1,7 @@
 groups:
  - name: main
    jobs:
-#     - Run_Tests
+     - Run_Tests
 #     - Versioning_job
      - Publish_job
 
