@@ -1,6 +1,7 @@
 FROM mhart/alpine-node:base-6
 
-ADD myworkspace-repo /home/myworksapce-repo/
+ADD myworkspace-repo /home/
+
 WORKDIR /home/myworkspace-repo/
 	
 # If you have native dependencies, you'll need extra tools
