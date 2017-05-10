@@ -12,11 +12,11 @@ WORKDIR /home
 #RUN apk add --no-cache make gcc g++ python
 
 # If you need npm, don't use a base tag
-RUN npm install --allow-root
+RUN npm install 
 RUN npm install -g bower
-RUN bower install --allow-root
-RUN npm install -g gulp-cli --allow-root
-RUN npm install -g gulp --allow-root
+RUN bower install 
+RUN npm install -g gulp-cli
+RUN npm install -g gulp
 
 EXPOSE 3000
 
