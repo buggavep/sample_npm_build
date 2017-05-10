@@ -1,8 +1,12 @@
 FROM mhart/alpine-node:base-6
 
-ADD ../../myworkspace-repo /home
+ADD ../src /home
 
-WORKDIR /home/myworkspace-repo
+COPY package.json /home
+COPY bower.json /home
+COPY Gulpfile.js /home
+
+WORKDIR /home
 	
 # If you have native dependencies, you'll need extra tools
 #RUN apk add --no-cache make gcc g++ python
