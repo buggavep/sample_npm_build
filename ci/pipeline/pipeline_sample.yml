@@ -40,4 +40,4 @@ jobs:
    #- task: deploy 
    #  file: myworkspace-repo/ci/tasks/package.yml
      params:
-       build: myworkspace-repo/ci/docker
+       build: myworkspace-repo/
