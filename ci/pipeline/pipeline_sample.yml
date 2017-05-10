@@ -2,7 +2,7 @@ groups:
  - name: main
    jobs:
 #     - Run_Tests
-     - Versioning_job
+#     - Versioning_job
      - Publish_job
 
 resources:
