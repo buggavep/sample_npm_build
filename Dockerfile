@@ -20,7 +20,7 @@ COPY . /usr/src/app
 # If you need npm, don't use a base tag
 RUN npm install 
 RUN npm install -g bower
-RUN bower install 
+#RUN bower install 
 RUN npm install -g gulp-cli
 RUN npm install -g gulp
 
