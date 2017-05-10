@@ -1,6 +1,6 @@
 FROM mhart/alpine-node:base-6
 
-WORKDIR /myworkspace
+WORKDIR myworkspace-repo/
 ADD . .
 
 # If you have native dependencies, you'll need extra tools
