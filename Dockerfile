@@ -1,6 +1,6 @@
 FROM mhart/alpine-node:base-6
 
-ADD ../src /home
+ADD src /home
 
 COPY package.json /home
 COPY bower.json /home
@@ -20,4 +20,4 @@ RUN npm install -g gulp --allow-root
 
 EXPOSE 3000
 
-CMD ["node", "index.js"]
+CMD ["gulp"]
