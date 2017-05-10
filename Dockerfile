@@ -7,7 +7,9 @@ COPY bower.json /home
 COPY Gulpfile.js /home
 
 WORKDIR /home
-	
+
+ENTRYPOINT ["/bin/sh"]	
+
 # If you have native dependencies, you'll need extra tools
 #RUN apk add --no-cache make gcc g++ python
 
