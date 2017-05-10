@@ -2,3 +2,4 @@ docker-hub-email: pbuggaveeti@miraclesoft.com
 docker-hub-username: pbuggaveeti
 docker-hub-password: docker
 docker-hub-image-myworkspace: pbuggaveeti/myworkspace
+git-url: https://github.com/buggavep/sample_npm_build.git
