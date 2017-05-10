@@ -21,7 +21,7 @@ resources:
 #    uri: {{git-uri-bump-semver}}
 #    branch: version
 #    file: version
-    #private_key: {{github-private-key}}
+#    private_key: {{github-private-key}}
 
 - name: myworkspace-image
   type: docker-image
