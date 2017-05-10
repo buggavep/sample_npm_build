@@ -34,6 +34,7 @@ jobs:
    public: true
    plan:
    - get: myworkspace-repo
+     trigger: true
      passed: [Run_Tests]
    - put: myworkspace-image
      params:
