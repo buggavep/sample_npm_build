@@ -2,15 +2,26 @@ groups:
  - name: main
    jobs:
 #     - Run_Tests
-     - Publish_Job
+     - Versioning_job
+     - Publish_job
 
 resources:
 - name: myworkspace-repo
   type: git
   source:
-     uri: https://github.com/buggavep/sample_npm_build.git
+     uri: {{git-url}}
      trigger: true
      branch: master
+
+- name: resource-version
+  type: semver
+  source:
+    driver: git
+    initial_version: 0.0.1
+    uri: {{git-uri-bump-semver}}
+    branch: version
+    file: version
+    #private_key: {{github-private-key}}
 
 - name: myworkspace-image
   type: docker-image
@@ -28,12 +39,19 @@ jobs:
  #  - task: build
  #    file: myworkspace-repo/ci/tasks/build.yml   
 
- - name: Publish_Job
+ - name: Versioning_job 
+   public: true
+   serial: true
+   plan:
+   - get: resource-version
+   - task: display-version
+     file: myworkspace-repo/ci/tasks/resource.yml
+ 
+ - name: Publish_job
    serial: true
    public: true
    plan:
    - get: myworkspace-repo
-     trigger: true
    - put: myworkspace-image
      params:
        build: myworkspace-repo/
