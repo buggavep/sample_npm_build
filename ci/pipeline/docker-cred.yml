@@ -3,5 +3,5 @@ docker-hub-username: pbuggaveeti
 docker-hub-password: docker
 docker-hub-image-myworkspace: pbuggaveeti/myworkspace
 
-git-url: https://github.com/buggavep/sample_npm_build.git
-git-uri-bump-semver: 
+#git-url: https://github.com/buggavep/sample_npm_build.git
+#git-uri-bump-semver: 
