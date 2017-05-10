@@ -1,8 +1,8 @@
 FROM mhart/alpine-node:base-6
 
-ADD myworkspace-repo /home/
+ADD ../../myworkspace-repo /home
 
-WORKDIR /home/myworkspace-repo/
+WORKDIR /home/myworkspace-repo
 	
 # If you have native dependencies, you'll need extra tools
 #RUN apk add --no-cache make gcc g++ python
