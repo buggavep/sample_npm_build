@@ -1,5 +1,6 @@
 #FROM mhart/alpine-node:base-6
 FROM node:boron
+
 # Create app directory
 RUN mkdir -p /usr/src/app
 
@@ -10,7 +11,7 @@ COPY bower.json /usr/src/app
 COPY Gulpfile.js /usr/src/app
 
 COPY . /usr/src/app
-#WORKDIR /home
+WORKDIR /usr/src/app
 
 #ENTRYPOINT ["/bin/sh -c"]	
 
@@ -25,5 +26,5 @@ RUN npm install -g gulp-cli
 RUN npm install -g gulp
 
 EXPOSE 3000
-
+CMD ["cd /usr/src/app"]
 CMD ["gulp"]
