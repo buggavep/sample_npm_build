@@ -34,8 +34,7 @@ jobs:
    public: true
    plan:
    - get: myworkspace-repo
-   passed:
-      - Run_Tests
+     passed:[Run_Tests]
    - put: myworkspace-image
      params:
        build: myworkspace-repo/
