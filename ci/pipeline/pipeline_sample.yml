@@ -1,8 +1,8 @@
 groups:
  - name: main
    jobs:
-     - build
-     - package
+#     - Run_Tests
+     - Publish_Job
 
 resources:
 - name: myworkspace-repo
@@ -21,23 +21,19 @@ resources:
     repository: {{docker-hub-image-myworkspace}}
 
 jobs: 
- - name: build
-   plan: 
-   - get: myworkspace-repo 
-     trigger: true 
-   - task: build
-     file: myworkspace-repo/ci/tasks/build.yml   
+ #- name: Run_Tests
+ #  plan: 
+ #  - get: myworkspace-repo 
+ #    trigger: true 
+ #  - task: build
+ #    file: myworkspace-repo/ci/tasks/build.yml   
 
- - name: package
+ - name: Publish
    serial: true
    public: true
    plan:
    - get: myworkspace-repo
      trigger: true
-     passed: 
-         - build
    - put: myworkspace-image
-   #- task: deploy 
-   #  file: myworkspace-repo/ci/tasks/package.yml
      params:
        build: myworkspace-repo/
