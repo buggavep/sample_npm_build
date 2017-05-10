@@ -1,15 +1,23 @@
-FROM ubuntu:16.04
+FROM mhart/alpine-node:base-6
 
-MAINTAINER PRANEETH BUGGAVEETI
+ADD ../src /home
 
-WORKDIR /opt
+COPY package.json /home
+COPY bower.json /home
+COPY Gulpfile.js /home
 
-ADD bash /tmp/setup_5.x
+WORKDIR /home
+	
+# If you have native dependencies, you'll need extra tools
+#RUN apk add --no-cache make gcc g++ python
 
-RUN apt-get update
-RUN apt-get install -y nodejs
-RUN /usr/bin/npm isntall -g gulp
-RUN /usr/bin/npm isntall -g bower
+# If you need npm, don't use a base tag
+RUN npm install --allow-root
+RUN npm install -g bower
+RUN bower install --allow-root
+RUN npm install -g gulp-cli --allow-root
+RUN npm install -g gulp --allow-root
 
-VOLUME ["/opt"]
-CMD ["gulp", "watch"]
+EXPOSE 3000
+
+CMD ["node", "index.js"]
