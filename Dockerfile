@@ -1,14 +1,18 @@
-FROM mhart/alpine-node:base-6
+#FROM mhart/alpine-node:base-6
+FROM node:boron
+# Create app directory
+RUN mkdir -p /usr/src/app
 
-ADD src /home
+ADD src /usr/src/app
 
-COPY package.json /home
-COPY bower.json /home
-COPY Gulpfile.js /home
+COPY package.json /usr/src/app
+COPY bower.json /usr/src/app
+COPY Gulpfile.js /usr/src/app
 
-WORKDIR /home
+COPY . /usr/src/app
+#WORKDIR /home
 
-ENTRYPOINT ["/bin/sh -c"]	
+#ENTRYPOINT ["/bin/sh -c"]	
 
 # If you have native dependencies, you'll need extra tools
 #RUN apk add --no-cache make gcc g++ python
