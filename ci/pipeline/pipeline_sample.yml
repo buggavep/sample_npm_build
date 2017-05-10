@@ -28,7 +28,7 @@ jobs:
  #  - task: build
  #    file: myworkspace-repo/ci/tasks/build.yml   
 
- - name: Publish
+ - name: Publish_Job
    serial: true
    public: true
    plan:
