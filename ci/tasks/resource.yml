@@ -1,0 +1,14 @@
+---
+paltform: linux  
+
+image_resource:
+ type: docker_image
+ source: 
+   repository: node
+   tag: "5" 
+inputs:
+- name: resource-version
+
+run:
+ path: cat
+ args: [resource-version/number]
