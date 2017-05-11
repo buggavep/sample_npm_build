@@ -4,11 +4,11 @@ FROM node:boron
 # Create app directory
 RUN mkdir -p /usr/src/app
 
-ADD src /usr/src/app
+ADD ../src /usr/src/app
 
-COPY package.json /usr/src/app
-COPY bower.json /usr/src/app
-COPY Gulpfile.js /usr/src/app
+COPY ../package.json /usr/src/app
+COPY ../bower.json /usr/src/app
+COPY ../Gulpfile.js /usr/src/app
 
 #COPY . /usr/src/app
 WORKDIR /usr/src/app
@@ -22,8 +22,8 @@ WORKDIR /usr/src/app
 RUN rm -rf node_modules
 RUN rm -rf bower_components
 RUN npm install 
-RUN npm install -g bower
-RUN bower install 
+RUN npm install -g bower 
+#RUN bower install 
 RUN npm install -g gulp-cli
 RUN npm install -g gulp
 
