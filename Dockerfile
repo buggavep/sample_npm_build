@@ -26,6 +26,6 @@ RUN bower install --allow-root
 RUN npm install -g gulp-cli
 RUN npm install -g gulp
 
-EXPOSE 3000
+EXPOSE 3000:80
 CMD ["cd /home/workspace-repo"]
 CMD ["gulp"]
