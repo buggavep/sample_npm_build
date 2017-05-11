@@ -4,11 +4,11 @@ FROM node:boron
 # Create app directory
 RUN mkdir -p /usr/src/app
 
-ADD ../src /usr/src/app
+ADD /src /usr/src/app
 
-COPY ../package.json /usr/src/app
-COPY ../bower.json /usr/src/app
-COPY ../Gulpfile.js /usr/src/app
+COPY /package.json /usr/src/app
+COPY /bower.json /usr/src/app
+COPY /Gulpfile.js /usr/src/app
 
 #COPY . /usr/src/app
 WORKDIR /usr/src/app
