@@ -9,7 +9,7 @@ resources:
 - name: myworkspace-repo
   type: git
   source:
-     uri: {{git-url}}
+     uri: https://github.com/buggavep/sample_npm_build.git
      trigger: true
      branch: master
 
