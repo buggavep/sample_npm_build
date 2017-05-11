@@ -2,16 +2,16 @@
 FROM node:boron
 
 # Create app directory
-RUN mkdir -p /usr/src/app
+RUN mkdir -p /home/workspace-repo
 
-ADD /src /usr/src/app
+ADD src /home/workspace-repo
 
-COPY /package.json /usr/src/app
-COPY /bower.json /usr/src/app
-COPY /Gulpfile.js /usr/src/app
+COPY package.json /home/workspace-repo
+COPY bower.json /home/workspace-repo
+COPY Gulpfile.js /home/workspace-repo
 
 #COPY . /usr/src/app
-WORKDIR /usr/src/app
+WORKDIR /home/workspace-repo
 
 #ENTRYPOINT ["/bin/sh -c"]	
 
@@ -28,5 +28,5 @@ RUN npm install -g gulp-cli
 RUN npm install -g gulp
 
 EXPOSE 3000
-CMD ["cd /usr/src/app"]
+CMD ["cd /home/workspace-repo"]
 CMD ["gulp"]
