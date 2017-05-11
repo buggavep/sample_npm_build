@@ -1,4 +1,3 @@
-#FROM mhart/alpine-node:base-6
 FROM node:5
 
 # Create app directory
