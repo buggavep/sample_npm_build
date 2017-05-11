@@ -1,33 +1,17 @@
-FROM node:5
+FROM ubuntu:16.04
 
-# Create app directory
-RUN mkdir -p /home/workspace-repo
+MAINTAINER PraneethBuggaveeti
 
-ADD src /home/workspace-repo
+WORKDIR /opt
 
-COPY package.json /home/workspace-repo
-COPY bower.json /home/workspace-repo
-COPY Gulpfile.js /home/workspace-repo
+ADD setup_5.x /tmp/setup_5.x
+RUN bash /tmp/setup_5.x
 
-#COPY . /usr/src/app
-WORKDIR /home/workspace-repo
+RUN apt-get update
+RUN apt-get install -y build-essential
+RUN apt-get install -y nodejs
+RUN /usr/bin/npm install -g gulp
+RUN /usr/bin/npm install -g bower
 
-#ENTRYPOINT ["/bin/sh -c"]	
-
-# If you have native dependencies, you'll need extra tools
-#RUN apk add --no-cache make gcc g++ python
-
-# If you need npm, don't use a base tag
-RUN ls -la
-RUN rm -rf node_modules
-RUN rm -rf bower_components
-RUN ls -la
-RUN npm install 
-RUN npm install -g bower 
-#RUN bower install 
-RUN npm install -g gulp-cli
-RUN npm install -g gulp
-
-EXPOSE 3000
-CMD ["cd /home/workspace-repo"]
-CMD ["gulp"]
+VOLUME ["/opt"]
+CMD ["gulp", "watch"]
