@@ -21,8 +21,8 @@ WORKDIR /home/workspace-repo
 RUN rm -rf node_modules
 RUN rm -rf bower_components
 RUN npm install 
-RUN npm install -g bower 
-#RUN bower install 
+#RUN npm install -g bower 
+RUN bower install --allow-root
 RUN npm install -g gulp-cli
 RUN npm install -g gulp
 
