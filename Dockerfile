@@ -1,5 +1,5 @@
 #FROM mhart/alpine-node:base-6
-FROM node:boron
+FROM node:5
 
 # Create app directory
 RUN mkdir -p /home/workspace-repo
