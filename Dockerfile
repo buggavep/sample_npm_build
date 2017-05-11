@@ -27,5 +27,5 @@ RUN npm install -g gulp-cli
 RUN npm install -g gulp
 
 EXPOSE 3000
-#CMD ["cd /home/workspace-repo"]
+CMD ["cd /home/workspace-repo"]
 CMD ["gulp"]
