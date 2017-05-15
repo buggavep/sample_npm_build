@@ -3,16 +3,11 @@ FROM node:5
 # Create app directory
 RUN mkdir -p /home/workspace-repo
 
-ADD src /home/workspace-repo
+ADD . /home/workspace-repo
 
-COPY package.json /home/workspace-repo
-COPY bower.json /home/workspace-repo
-COPY Gulpfile.js /home/workspace-repo
-
-#COPY . /usr/src/app
 WORKDIR /home/workspace-repo
-
-#ENTRYPOINT ["/bin/sh -c"]	
+	
+ENTRYPOINT ["/home/workspace-repo"]
 
 # If you have native dependencies, you'll need extra tools
 #RUN apk add --no-cache make gcc g++ python
@@ -26,6 +21,10 @@ RUN bower install --allow-root
 RUN npm install -g gulp-cli
 RUN npm install -g gulp
 
-EXPOSE 3000:80
-CMD ["cd /home/workspace-repo"]
-CMD ["gulp"]
+
+EXPOSE 3000
+
+#ENTRYPOINT ["/home/workspace-repo/node_modules/.bin/gulp"]
+ADD build.sh /home/workspace-repo
+
+CMD ["/home/workspace-repo/build.sh"]

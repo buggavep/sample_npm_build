@@ -1,0 +1,30 @@
+# We are basing our container on Ubuntu Linux 14.04
+FROM ubuntu:trusty
+ 
+# Install the pre-requisites
+RUN apt-get update
+RUN apt-get install -y curl
+RUN apt-get install -y git
+RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
+RUN apt-get install -y nodejs
+RUN mkdir -p /home/myrpoj 
+WORKDIR /home/myproj
+# Copy the application into the application area
+ADD  . /home/myproj/
+RUN cd /home/myrpoj/
+RUN rm -rf node_modules
+RUN rm -rf bower_components
+RUN npm install
+RUN npm install  -g bower
+RUN bower install --allow-root
+RUN npm install  -g gulp-cli
+RUN npm install   gulp-cli
+RUN npm install -g gulp
+RUN npm install gulp --no-bin-links
+RUN npm install gulp --save-dev
+RUN chmod 755 /home/myproj/start.sh
+# Expose our TCP/IP port to the host system
+EXPOSE 3000
+ 
+# Set up the correct run command so that it starts with our container
+CMD [ "/home/myproj/start.sh" ]

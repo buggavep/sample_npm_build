@@ -1,0 +1,6 @@
+# We are basing our container on Ubuntu Linux 14.04
+FROM ubuntu:trusty
+ 
+# Install the pre-requisites
+RUN sudo mkdir -p /home/test
+
